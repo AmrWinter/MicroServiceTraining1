@@ -43,6 +43,7 @@ namespace Catalog.API.Controllers
         [HttpGet]
         [ProducesResponseType(typeof(Product), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Product), StatusCodes.Status404NotFound)]
+        [Route("[action]/{name}", Name = "GetProductByName")]
         public async Task<ActionResult<Product>> GetProductByName(string name)
         {
             var product = await _productRepository.GetProductByName(name);
